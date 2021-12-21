@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, ScrollView, View, Text} from 'react-native';
+import {StyleSheet, FlatList, View, Text} from 'react-native';
 
 import TopBar from './TopBar';
 import Tops from './Tops';
@@ -14,7 +14,7 @@ const MainScreen = () => {
       <Text style={styles.UserGreetings}>Hello, userName</Text>
       <View style={styles.mainContainer}>
         <View style={styles.tops}>
-          <ScrollView
+          <FlatList
             scrollEventThrottle={16}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
@@ -30,7 +30,7 @@ const MainScreen = () => {
             <Tops
               imageUri={require('../../clothes_pics/jackets/black_outdoor_jacket.png')}
             />
-          </ScrollView>
+          </FlatList>
         </View>
 
         <View style={styles.mannequin}>
@@ -41,7 +41,7 @@ const MainScreen = () => {
 
         <View style={styles.bottoms}>
           <View>
-            <ScrollView
+            <FlatList
               scrollEventThrottle={16}
               horizontal={true}
               showsHorizontalScrollIndicator={false}>
@@ -57,7 +57,7 @@ const MainScreen = () => {
               <Bottoms
                 imageUri={require('../../clothes_pics/bottoms/jeans_04.png')}
               />
-            </ScrollView>
+            </FlatList>
           </View>
         </View>
       </View>
