@@ -1,15 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 
-class Tops extends Component {
-  render() {
-    return (
-      <View style={styles.topsContainer}>
-        <Image source={this.props.imageUri} style={styles.topsImage} />
-      </View>
-    );
-  }
-}
+const Tops = item => {
+  return (
+    <View style={styles.topsContainer}>
+      <Image source={item.imageUri} style={styles.topsImage} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   topsContainer: {
