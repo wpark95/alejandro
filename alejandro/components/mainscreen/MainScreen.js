@@ -8,6 +8,7 @@ import Bottoms from './Bottoms';
 import Mannequin from './Mannequin';
 
 const MainScreen = () => {
+  // Dummy Tops Data
   const topsData = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -27,6 +28,23 @@ const MainScreen = () => {
     },
   ];
 
+  // Dummy Extra Tops Data
+  // const topsExtraData = [
+  //   {
+  //     id: '123123123',
+  //     imageUri: require('../../clothes_pics/jackets/red_padded_jacket.jpeg'),
+  //   },
+  //   {
+  //     id: '1231231231',
+  //     imageUri: require('../../clothes_pics/jackets/red_coat.jpg'),
+  //   },
+  //   {
+  //     id: '1231231232',
+  //     imageUri: require('../../clothes_pics/jackets/red_fur_jacket.jpg'),
+  //   },
+  // ];
+
+  // Dummy Bottoms Data
   const bottomsData = [
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -45,10 +63,8 @@ const MainScreen = () => {
       imageUri: require('../../clothes_pics/bottoms/jeans_04.png'),
     },
   ];
-
   const renderTops = ({item}) => <Tops imageUri={item.imageUri} />;
   const renderBottoms = ({item}) => <Bottoms imageUri={item.imageUri} />;
-
   return (
     <>
       <TopBar />
@@ -57,9 +73,11 @@ const MainScreen = () => {
         <View style={styles.tops}>
           <FlatList
             horizontal={true}
+            showsHorizontalScrollIndicator={false}
             data={topsData}
             renderItem={renderTops}
             keyExtractor={item => item.id}
+            // Todo: Add Extra Data For Re-rendering
           />
         </View>
         <View style={styles.mannequin}>
@@ -71,6 +89,7 @@ const MainScreen = () => {
           <View>
             <FlatList
               horizontal={true}
+              showsHorizontalScrollIndicator={false}
               data={bottomsData}
               renderItem={renderBottoms}
               keyExtractor={item => item.id}
