@@ -1,5 +1,7 @@
 # alejandro
 
+![alt text](https://user-images.githubusercontent.com/37885718/149617597-548c23b6-c6c1-4eb8-a8cb-815e032f3472.png)
+
 **alejandro** is a mobile application that provides virtual clothes fitting and shopping experiences. Virtually match the clothes you have and the clothes you want online. Save your looks and share your lookbook with friends!
 
 Planned launch on Google Play Store and Apple App Store in Summer 2022
@@ -17,6 +19,16 @@ Planned launch on Google Play Store and Apple App Store in Summer 2022
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
+
+
+
+
+
+
+
+
+
+
 
 
 *** React-Native
