@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, Image} from 'react-native';
 
-class Mannequin extends Component {
-  render() {
-    return <Image source={this.props.imageUri} style={styles.mannequin} />;
-  }
-}
+const Mannequin = item => (
+  <Image source={item.imageUri} style={styles.mannequin} />
+);
 
 const styles = StyleSheet.create({
   mannequin: {

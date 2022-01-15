@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, ScrollView, View, Text} from 'react-native';
+import {StyleSheet, FlatList, View, Text} from 'react-native';
 
 import TopBar from './TopBar';
 import Tops from './Tops';
@@ -8,56 +8,92 @@ import Bottoms from './Bottoms';
 import Mannequin from './Mannequin';
 
 const MainScreen = () => {
+  // Dummy Tops Data
+  const topsData = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      imageUri: require('../../clothes_pics/jackets/black_long_coat.png'),
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      imageUri: require('../../clothes_pics/jackets/black_biker_jacket.png'),
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      imageUri: require('../../clothes_pics/jackets/black_leather_jacket.png'),
+    },
+    {
+      id: '58694a0f-8rj4-29sd-sj25-12323534534a',
+      imageUri: require('../../clothes_pics/jackets/black_outdoor_jacket.png'),
+    },
+  ];
+
+  // Dummy Extra Tops Data
+  // const topsExtraData = [
+  //   {
+  //     id: '123123123',
+  //     imageUri: require('../../clothes_pics/jackets/red_padded_jacket.jpeg'),
+  //   },
+  //   {
+  //     id: '1231231231',
+  //     imageUri: require('../../clothes_pics/jackets/red_coat.jpg'),
+  //   },
+  //   {
+  //     id: '1231231232',
+  //     imageUri: require('../../clothes_pics/jackets/red_fur_jacket.jpg'),
+  //   },
+  // ];
+
+  // Dummy Bottoms Data
+  const bottomsData = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      imageUri: require('../../clothes_pics/bottoms/jeans_01.jpg'),
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      imageUri: require('../../clothes_pics/bottoms/jeans_02.jpg'),
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      imageUri: require('../../clothes_pics/bottoms/jeans_03.jpg'),
+    },
+    {
+      id: '58694a0f-3da1-988x-bd96-145571e29d72',
+      imageUri: require('../../clothes_pics/bottoms/jeans_04.png'),
+    },
+  ];
+  const renderTops = ({item}) => <Tops imageUri={item.imageUri} />;
+  const renderBottoms = ({item}) => <Bottoms imageUri={item.imageUri} />;
   return (
     <>
       <TopBar />
       <Text style={styles.UserGreetings}>Hello, userName</Text>
       <View style={styles.mainContainer}>
         <View style={styles.tops}>
-          <ScrollView
-            scrollEventThrottle={16}
+          <FlatList
             horizontal={true}
-            showsHorizontalScrollIndicator={false}>
-            <Tops
-              imageUri={require('../../clothes_pics/jackets/black_long_coat.png')}
-            />
-            <Tops
-              imageUri={require('../../clothes_pics/jackets/black_biker_jacket.png')}
-            />
-            <Tops
-              imageUri={require('../../clothes_pics/jackets/black_leather_jacket.png')}
-            />
-            <Tops
-              imageUri={require('../../clothes_pics/jackets/black_outdoor_jacket.png')}
-            />
-          </ScrollView>
+            showsHorizontalScrollIndicator={false}
+            data={topsData}
+            renderItem={renderTops}
+            keyExtractor={item => item.id}
+            // Todo: Add Extra Data For Re-rendering
+          />
         </View>
-
         <View style={styles.mannequin}>
           <Mannequin
             imageUri={require('../../clothes_pics/mannequin/Alejandra.jpg')}
           />
         </View>
-
         <View style={styles.bottoms}>
           <View>
-            <ScrollView
-              scrollEventThrottle={16}
+            <FlatList
               horizontal={true}
-              showsHorizontalScrollIndicator={false}>
-              <Bottoms
-                imageUri={require('../../clothes_pics/bottoms/jeans_01.jpg')}
-              />
-              <Bottoms
-                imageUri={require('../../clothes_pics/bottoms/jeans_02.jpg')}
-              />
-              <Bottoms
-                imageUri={require('../../clothes_pics/bottoms/jeans_03.jpg')}
-              />
-              <Bottoms
-                imageUri={require('../../clothes_pics/bottoms/jeans_04.png')}
-              />
-            </ScrollView>
+              showsHorizontalScrollIndicator={false}
+              data={bottomsData}
+              renderItem={renderBottoms}
+              keyExtractor={item => item.id}
+            />
           </View>
         </View>
       </View>
